@@ -1,0 +1,39 @@
+{
+  "name": "multip-page",
+  "version": "1.0.0",
+  "description": "this is a multip page can any turn",
+  "main": "index.js",
+  "scripts": {
+    "build:development": "webpack --mode development",
+    "build:production": "webpack --mode production",
+    "start:production": "webpack serve --mode production",
+    "start:development": "webpack serve --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MygengBin/multip-page.git"
+  },
+  "keywords": [
+    "multip-page"
+  ],
+  "author": "GengBin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MygengBin/multip-page/issues"
+  },
+  "homepage": "https://github.com/MygengBin/multip-page#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/runtime": "^7.20.1",
+    "babel-loader": "^9.1.0",
+    "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "terser-webpack-plugin": "^5.3.6",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
