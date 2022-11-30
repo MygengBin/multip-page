@@ -14,8 +14,9 @@ window.multipPage = class{
         currentPage=1,
         allPage=1,
         dom,pageSize=10,total=1,mainColor='#e96d30',
-        pageSizeInputEnterFunction=async function ({value}) {console.log(value)}},
-        goPageEnterFunction=async function ({value}) {console.log(value)}){        
+        pageSizeInputEnterFunction=function ({value}) {console.log(value)},
+        goPageEnterFunction=function ({value}) {console.log(value)}
+    }){        
         this.dom=dom;
         this.currentPage = currentPage;
         this.allPage = allPage;
@@ -72,66 +73,67 @@ window.multipPage = class{
         `;
         const _this = this;
         const pageSizeInput = this.dom.getElementsByClassName('pageSizeInput')[0];
-        pageSizeInput.addEventListener('keydown',async function (e) {
+        pageSizeInput.addEventListener('keydown',function (e) {
             if(e.key==='Enter'){
                 if(!parseInt(pageSizeInput.value.trim()) || parseInt(pageSizeInput.value.trim())<0) return alert('请输入大于0的数字');
-                await _this.pageSizeInputEnterFunction({
+                _this.pageSizeInputEnterFunction({
                     value:this.value.trim()
                 });
             }
             // onkeydown="if(event.keyCode==13){setPageSize();}"
         });
         const pageSizeConfirmButton = this.dom.getElementsByClassName('pageSizeConfirmButton')[0];
-        pageSizeConfirmButton.addEventListener('click',async function(e){
+        pageSizeConfirmButton.addEventListener('click',function(e){
             e.stopPropagation();
             if(!parseInt(pageSizeInput.value.trim()) || parseInt(pageSizeInput.value.trim())<0) return alert('请输入大于0的数字');
-            await _this.pageSizeInputEnterFunction({
+            _this.pageSizeInputEnterFunction({
                 value:pageSizeInput.value.trim()
             });
         });
         const goPageInput = this.dom.getElementsByClassName('goPageInput')[0];
-        goPageInput.addEventListener('keydown',async function (e) {
+        goPageInput.addEventListener('keydown',function (e) {
             if(e.key==='Enter'){
                 if(!parseInt(goPageInput.value.trim()) || parseInt(goPageInput.value.trim())<0) return alert('请输入大于0的数字');
-                await _this.goPageEnterFunction({
+                console.log(_this.goPageEnterFunction);
+                _this.goPageEnterFunction({
                     value:this.value.trim()
                 });
             }
         });
         const goPageButton = this.dom.getElementsByClassName('goPageButton')[0];
-        goPageButton.addEventListener('click',async function(e){
+        goPageButton.addEventListener('click',function(e){
             e.stopPropagation();
             if(!parseInt(goPageInput.value.trim()) || parseInt(goPageInput.value.trim())<0) return alert('请输入大于0的数字');
-            await _this.goPageEnterFunction({
+            _this.goPageEnterFunction({
                 value:goPageInput.value.trim()
             });
         });
         const turnPageTo1 = this.dom.getElementsByClassName('turnPageTo1')[0];
-        turnPageTo1.addEventListener('click',async function(e){
+        turnPageTo1.addEventListener('click',function(e){
             e.stopPropagation();
-            await _this.goPageEnterFunction({
+            _this.goPageEnterFunction({
                 value:1
             });
         });
-        const turnPageToEnd = this.dom.getElementsByClassName('turnPageTo1')[0];
-        turnPageToEnd.addEventListener('click',async function(e){
+        const turnPageToEnd = this.dom.getElementsByClassName('turnPageToEnd')[0];
+        turnPageToEnd.addEventListener('click',function(e){
             e.stopPropagation();
-            await _this.goPageEnterFunction({
+            _this.goPageEnterFunction({
                 value:_this.allPage
             });
         });
-        const turnPageToPrevious = this.dom.getElementsByClassName('turnPageTo1')[0];
-        turnPageToPrevious.addEventListener('click',async function(e){
+        const turnPageToPrevious = this.dom.getElementsByClassName('turnPageToPrevious')[0];
+        turnPageToPrevious.addEventListener('click',function(e){
             e.stopPropagation();
-            await _this.goPageEnterFunction({
+            _this.goPageEnterFunction({
                 value:_this.currentPage-1
             });
         });
-        const turnPageToNext = this.dom.getElementsByClassName('turnPageTo1')[0];
-        turnPageToNext.addEventListener('click',async function(e){
+        const turnPageToNext = this.dom.getElementsByClassName('turnPageToNext')[0];
+        turnPageToNext.addEventListener('click',function(e){
             e.stopPropagation();
-            await _this.goPageEnterFunction({
-                value:_this.currentPage+1
+            _this.goPageEnterFunction({
+                value:parseInt(_this.currentPage)+1
             });
         });
     }

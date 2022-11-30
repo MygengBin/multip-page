@@ -17,7 +17,10 @@
         onload=()=>{
             window.m = new multipPage({
                 dom:document.getElementById('box'),
-                pageSize:20
+                pageSize:20,
+                goPageEnterFunction:function({value}){
+                    alert(1);
+                }
             });
         }
     </script>
