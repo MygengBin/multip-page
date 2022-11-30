@@ -15,7 +15,10 @@
     <div id="box"></div>
     <script>
         onload=()=>{
-            new multipPage(document.getElementById('box'));
+            window.m = new multipPage({
+                dom:document.getElementById('box'),
+                pageSize:20
+            });
         }
     </script>
 </body>
