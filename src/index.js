@@ -27,30 +27,6 @@ window.multipPage = class{
         this.render();
     }
     render(){
-        const buttonStyle = toLineString({
-            width: '47px',
-            height: '25px',
-            border: 'none',
-            cursor: 'pointer',
-            background: 'rgb(226, 108, 36)',
-            'border-radius': '3px',
-            color: '#fff',
-            'font-size': '14px',
-            'line-height': '25px',
-        });
-        const listLineNob = toLineString({
-            'border-collapse': 'collapse',
-            'font-size':'12px',
-            'text-align':'center', 
-            'background-color':'#fff',
-            border:0
-        });
-        const listLineNobTr = toLineString({
-            'height': '22px',
-            'background-color': '#F0F0F0', 
-            'font-size':'12px',
-            'font-weight':'boild',
-        });
         this.dom.innerHTML='';
         this.dom.innerHTML+=(function style(){
             let str = '<style>';
@@ -60,7 +36,7 @@ window.multipPage = class{
             str+=`#${this.dom.id} .button{ width:47px; height:25px; border:none; cursor:pointer; background: var(--mainColor); border-radius:3px; color: #fff; font-size:14px; line-height:25px }`;
             str+=`#${this.dom.id} .input-text{ width: 50px; height: 20px; line-height:20px; border: 1px solid #ddd; margin: 0 2px; padding: 0 2px; text-indent: .5em; outline: 0 }`;
             str+=`#${this.dom.id} .input-text:hover,#${this.dom.id} .input-text:focus{border-color:var(--mainColor); box-shadow: 0 4px 10px 0 var(--mainColor)}`;
-            str+=`#${this.dom.id} .toggle-button{ height: 25px; line-height: 22px;background:#FFF; border:1px solid #CFCFCF; text-align:center; color:#242323 }`;
+            str+=`#${this.dom.id} .toggle-button{ height: 25px; line-height: 22px;background:#FFF; border:1px solid #CFCFCF; text-align:center; color:#242323; padding: 0 10px }`;
             str+=`#${this.dom.id} .toggle-button:disabled{ color: gray }`;
             str+='</style>';
             return str;
@@ -78,11 +54,11 @@ window.multipPage = class{
             </div>
             <div height="42" align="center" valign="middle" bgcolor="#d0d0d0">
                 <button ${this.currentPage<=1?'disabled':''} type="button" class="toggle-button turnPageTo1">&lt;&lt;</button>
-                <button ${this.currentPage<=1?'disabled':''} type="button" class="toggle-button turnPageToPrevious">前一个</button>
+                <button ${this.currentPage<=1?'disabled':''} type="button" class="toggle-button turnPageToPrevious">上一页</button>
                 &nbsp;
                 ${this.currentPage}/${this.allPage}
                 &nbsp;
-                <button ${this.currentPage>=this.allPage?'disabled':''} type="button" class="toggle-button turnPageToNext">下一个</button>
+                <button ${this.currentPage>=this.allPage?'disabled':''} type="button" class="toggle-button turnPageToNext">下一页</button>
                 <button ${this.currentPage>=this.allPage?'disabled':''} type="button" class="toggle-button turnPageToEnd">&gt;&gt;</button>
             </div>
             <div height="42" align="right" bgcolor="#d0d0d0">
